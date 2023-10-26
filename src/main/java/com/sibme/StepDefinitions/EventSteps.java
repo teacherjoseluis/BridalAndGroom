@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 
 public class EventSteps {
 
-    EventPage eventPage= new EventPage();
+    EventPage eventPage = new EventPage();
 
     @Then("User verify the event name as {string}")
     public void userVerifyTheEventNameAs(String eventName) {

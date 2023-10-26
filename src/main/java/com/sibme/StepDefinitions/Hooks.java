@@ -9,10 +9,9 @@ import java.io.IOException;
 
 public class Hooks {
 
-    FileOperations fileOperations=new FileOperations();
+    FileOperations fileOperations = new FileOperations();
     DriverFactory driverFactory = new DriverFactory();
     private AppiumDriver driver;
-
 
 
     @BeforeAll
@@ -33,17 +32,15 @@ public class Hooks {
         long executionTime = endTime - startTime;
         System.out.println("Step Execution Time: " + executionTime + " milliseconds");
     }
+
     @Before
     public void getURL() throws IOException {
 //    driverFactory.startAppiumService();
-    driverFactory.setUp("android");
-    driver= driverFactory.getDriver();
-    System.out.println("This is driver:: " + driver);
-
-
-
-
+        driverFactory.setUp("android");
+        driver = driverFactory.getDriver();
+        System.out.println("This is driver:: " + driver);
     }
+
 //    @AfterMethod
 //    public void tearDown()
 //    {
@@ -65,15 +62,14 @@ public class Hooks {
 //            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 //            scenario.attach(screenshot, "image/png", "Failure Screenshot");
         }
-        try{
+        try {
             System.out.println("Quiting driver");
 //            driver=driverFactory.getDriver(platform);
             driver.quit();
 //            driverFactory.stopAppiumService();
 
             //driver.quit();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Already closed");
         }
     }

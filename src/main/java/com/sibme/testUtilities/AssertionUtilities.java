@@ -12,14 +12,14 @@ import java.util.List;
 ;
 
 public class AssertionUtilities {
-    BasePage basePage=new BasePage();
-    DriverFactory driverFactory=new DriverFactory();
+    BasePage basePage = new BasePage();
+    DriverFactory driverFactory = new DriverFactory();
     AppiumDriver driver;
 
 
-    CoreManipulation coreManipulation=new CoreManipulation();
+    CoreManipulation coreManipulation = new CoreManipulation();
 
-    public AssertionUtilities(){
+    public AssertionUtilities() {
         driver = driverFactory.getDriver();
 
     }
@@ -27,7 +27,7 @@ public class AssertionUtilities {
 
     public void assertEqualTwoValues(String elementActualText, String expectedValue) {
         try {
-            Assert.assertEquals(elementActualText,expectedValue);
+            Assert.assertEquals(elementActualText, expectedValue);
             System.out.println("Assertion passed.");
         } catch (AssertionError e) {
             System.out.println("Assertion failed! Actual value: " + elementActualText + ", Expected value: " + expectedValue);
@@ -35,7 +35,7 @@ public class AssertionUtilities {
         }
     }
 
-    public void assertTheElementVisibility(WebElement element){
+    public void assertTheElementVisibility(WebElement element) {
         basePage.waitForElement(element);
         Assert.assertTrue(element.isDisplayed());
     }

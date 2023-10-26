@@ -21,7 +21,6 @@ public class LoginPage extends BasePage {
     AppiumDriver driver;
 
 
-
     @AndroidFindBy(xpath = "//android.widget.Button[contains(@text, 'LOGIN')]")
     public WebElement login_button;
 
@@ -38,13 +37,10 @@ public class LoginPage extends BasePage {
     public WebElement allow_button;
 
 
-
     public LoginPage() {
-
-        driver=driverFactory.getDriver();
+        driver = driverFactory.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
     }
 
     public void loginIntoApp(String userType) throws InterruptedException {
@@ -59,6 +55,7 @@ public class LoginPage extends BasePage {
         driver.navigate().back();
         click(login_button);
     }
+
     public void verifySuccessfulLoginMessage() {
         try {
             for (int i = 0; i < 3; i++) {
@@ -66,14 +63,8 @@ public class LoginPage extends BasePage {
                     click(allow_button);
                 }
             }
+        } catch (Exception e) {
         }
-        catch (Exception e){
-
-        }
-
         assertionUtilities.assertTheElementVisibility(home_button);
     }
-
-
-
 }

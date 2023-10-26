@@ -21,7 +21,6 @@ public class EventPage extends BasePage {
     AppiumDriver driver;
 
 
-
     @AndroidFindBy(xpath = "(//android.widget.ImageView)[1]/following-sibling::android.widget.TextView")
     public WebElement event_name;
 
@@ -38,10 +37,8 @@ public class EventPage extends BasePage {
     public WebElement allow_button;
 
 
-
     public EventPage() {
-
-        driver=driverFactory.getDriver();
+        driver = driverFactory.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -49,7 +46,7 @@ public class EventPage extends BasePage {
 
 
     public void verifyEventName(String eventName) {
-        String actualTextEventName= getText(event_name);
+        String actualTextEventName = getText(event_name);
         assertionUtilities.assertEqualTwoValues(actualTextEventName, eventName);
     }
 }

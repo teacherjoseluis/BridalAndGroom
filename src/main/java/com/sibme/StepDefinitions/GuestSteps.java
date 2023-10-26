@@ -6,13 +6,11 @@ import io.cucumber.java.en.Then;
 
 public class GuestSteps {
 
-    GuestPage guestPage=new GuestPage();
-
+    GuestPage guestPage = new GuestPage();
 
     @And("User click on the {string} icon")
     public void userClickOnTheIcon(String iconName) {
         guestPage.moveToGuestPage(iconName);
-
     }
 
     @And("User click on Plus icon")
@@ -38,7 +36,6 @@ public class GuestSteps {
     @And("User enter the Email as {string}")
     public void userEnterTheEmailAs(String guestEmail) {
         guestPage.enterGuestEmail(guestEmail);
-
     }
 
     @And("User enter the Phone as {string}")

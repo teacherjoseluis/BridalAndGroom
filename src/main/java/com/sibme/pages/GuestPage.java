@@ -23,7 +23,6 @@ public class GuestPage extends BasePage {
     AppiumDriver driver;
 
 
-
     @AndroidFindBy(xpath = "(//android.widget.ImageButton)[2]")
     public WebElement plus_icon;
 
@@ -46,10 +45,8 @@ public class GuestPage extends BasePage {
     public WebElement allow_button;
 
 
-
     public GuestPage() {
-
-        driver=driverFactory.getDriver();
+        driver = driverFactory.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -57,9 +54,9 @@ public class GuestPage extends BasePage {
 
 
     public void moveToGuestPage(String iconName) {
-        WebElement icon_element= driver.findElement(By.xpath("//android.widget.FrameLayout[@content-desc='"+iconName+"']"));
+        WebElement icon_element = driver.findElement(By.xpath("//android.widget.FrameLayout[@content-desc='" + iconName + "']"));
         click(icon_element);
-        WebElement icon_text_element=driver.findElement(By.xpath("//android.widget.TextView[@text='"+iconName+"']"));
+        WebElement icon_text_element = driver.findElement(By.xpath("//android.widget.TextView[@text='" + iconName + "']"));
         assertionUtilities.assertTheElementVisibility(icon_text_element);
     }
 
@@ -68,13 +65,13 @@ public class GuestPage extends BasePage {
     }
 
     public void clickOnButton(String buttonName) {
-        WebElement button_element= driver.findElement(By.xpath("//android.widget.TextView[@text='"+buttonName+"']/following-sibling::android.widget.ImageButton"));
+        WebElement button_element = driver.findElement(By.xpath("//android.widget.TextView[@text='" + buttonName + "']/following-sibling::android.widget.ImageButton"));
         click(button_element);
     }
 
     public void verifyScreenTitle(String screenName) {
-        WebElement screen_title= driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id, 'id/appbartitle') and @text='"+screenName+"']"));
-       assertionUtilities.assertTheElementVisibility(screen_title);
+        WebElement screen_title = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id, 'id/appbartitle') and @text='" + screenName + "']"));
+        assertionUtilities.assertTheElementVisibility(screen_title);
     }
 
     public void enterGuestName(String guestName) {
@@ -98,7 +95,7 @@ public class GuestPage extends BasePage {
     }
 
     public void clickOnRadioButton(String groupName, String radioButtonName) {
-        WebElement radio_button_element= driver.findElement(By.xpath("//android.view.ViewGroup[contains(@resource-id, ':id/"+groupName+"group')]/android.widget.RadioButton[@text='"+radioButtonName+"']"));
+        WebElement radio_button_element = driver.findElement(By.xpath("//android.view.ViewGroup[contains(@resource-id, ':id/" + groupName + "group')]/android.widget.RadioButton[@text='" + radioButtonName + "']"));
         click(radio_button_element);
     }
 
@@ -116,8 +113,7 @@ public class GuestPage extends BasePage {
                     click(allow_button);
                 }
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
         }
     }
